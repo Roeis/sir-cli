@@ -1,0 +1,4 @@
+/static/dist/**/*.js    binary
+/static/dist/**/*.css   binary
+/static/dist/**/*.map   binary
+yarn.lock               binary

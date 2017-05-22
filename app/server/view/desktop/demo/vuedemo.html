@@ -1,0 +1,12 @@
+{% extends '../common/master.html' %}
+
+{% block head%}
+    <title>vue ssr demo</title>
+{% endblock%}
+
+{% block body %}
+    {{ vueDom | safe }}
+    <!-- <div class="wrapper"></div> -->
+    <script src="{{entrance('vendor.js')}}"></script>
+    <script src="{{entrance('client.js')}}"></script>
+{% endblock %}

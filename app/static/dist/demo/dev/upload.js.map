@@ -1,0 +1,1 @@
+{"version":3,"file":"upload.js","sources":["webpack:///static/src/demo/upload.js"],"sourcesContent":["'use strict';\n\nlet upload = {\n\n    imagePreview(){\n\n    },\n\n    upload(){\n\n    },\n\n    \n}\n\n\n\n// WEBPACK FOOTER //\n// static/src/demo/upload.js"],"mappings":";;;;;;;;;;;;;;AAAA;AACA;AACA;AAEA;AAIA;AANA;;;;A","sourceRoot":""}

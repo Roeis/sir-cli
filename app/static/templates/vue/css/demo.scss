@@ -1,0 +1,49 @@
+@import './base/base.scss';
+@import './base/layout.scss';
+
+
+.wrapper{
+    background-color: #f50;
+    > .row{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+
+h1{
+    font-size: 48px;
+}
+
+.module{
+    margin: 1px;
+    padding: 2em;
+    background-color: #fff;
+    p{
+        line-height: 1.5;
+    }
+}
+
+.module-icons{
+    span{
+        margin: 5px;
+    }
+}
+
+.module-info{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.extreme-big{
+    font-size: 200px;
+    color: #ccc;
+}
+code{
+    background-color: #f8f8f8;
+    display: block;
+}
+li{
+    padding: 1em 0;
+}

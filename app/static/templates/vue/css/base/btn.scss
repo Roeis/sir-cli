@@ -1,0 +1,82 @@
+$green: #49c970;
+$yellow: #ffbf00;
+$blue: #3e7cf4;
+$red: #eb6a51;
+@mixin btn($color){
+    background-color: $color;
+    color: #fff;
+    border-color: $color;
+    &:hover,
+    &:active{
+        color: #fff;
+        background-color: $color - #111;
+        border-color: $color;
+    }
+}
+@mixin btnline($color){
+    background-color: #fff;
+    color: $color;
+    border-color: $color;
+    &:hover,
+    &:active{
+        color: $color - #111;
+        background-color: #fbfbfb;
+        border-color: $color - #111;
+    }
+}
+.btn{
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    @include btn($blue);
+}
+.btn-m{
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 16px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    @include btn($blue);
+}
+
+.btn-line{
+    @include btnline($blue);
+}
+.btn-line-success{
+    @include btnline($green);
+}
+.btn-line-warning{
+    @include btnline($yellow);
+}
+.btn-line-danger{
+    @include btnline($red);
+}
+
+.btn-success{
+    @include btn($green);
+}
+.btn-warning{
+    @include btn($yellow);
+}
+.btn-danger{
+    @include btn($red);
+}
+.btn-disabled{
+    background-color: #ddd;
+    border-color: #ccc;
+    color: #aaa;
+    &:hover,
+    &:active{
+        background-color: #ddd;
+        border-color: #ccc;
+        color: #aaa;
+    }
+}

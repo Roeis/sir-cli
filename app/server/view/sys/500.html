@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Status {{status}}</title>
+        <style>
+            body {font-family: -apple-system, "PingFang SC", "Helvetica Neue", "STHeiti", "Microsoft Yahei", "Tahoma", sans-serif;font-size: 14px;}
+            h1 {display: inline-block;font-size: 40px; line-height: 1.5; background-color: #ec3d3d; color: #fff;padding: 0 20px;margin: 10px 0;}
+            h2 {font-weight: 100;}
+            pre {white-space: pre-wrap; color: #333;}
+            .error{margin: 10%;}
+        </style>
+    </head>
+    <body>
+        <div class="error">
+            <h1>Status: {{status}}</h1>
+            <h2>Enviroment: {{ env }} --- Looks like something broken</h2>
+            <h2>Message:</h2>
+            <pre><code> {{ message }} </code></pre>
+            <h2>Stack:</h2>
+            <pre><code> {{ stack }} </code></pre>
+        </div>
+    </body>
+</html>

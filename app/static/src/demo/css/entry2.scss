@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+body{
+    font-size: 62.5%;
+}
+
+.wrapper{
+    ul{
+        padding: 10px;
+    }
+    li{
+        color: #f90;
+        &.active{
+            color: #f50;
+        }
+    }
+}
+
+.demo{
+    background: url('../assets/picone.jpg') no-repeat;
+}
