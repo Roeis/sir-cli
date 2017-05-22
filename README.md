@@ -1,10 +1,10 @@
-# bone-cli
+# koa-bone-cli
+
 a scaffold cli tool for web framework development based on koa2
-# commmand line tool
 
 # Bone
 
-    脚手架: Bone
+    命令行工具: Bone
     核心：上手快速，开发体验极致
 
 ![bone](http://n1image.hjfile.cn/mh/2017/05/15/75198ce65d81c72a9dd1aca7bd815c4f.png)
@@ -18,7 +18,7 @@ a scaffold cli tool for web framework development based on koa2
 
 **installation**
 
-    npm i -g bone-cli
+    npm i -g koa-bone-cli
 
 ### Command line Tool Api
 

@@ -1,5 +1,5 @@
 {
-  "name": "bone-cli",
+  "name": "koa-bone-cli",
   "version": "1.0.0",
   "description": "scaffold cli tool for koa2 web framework",
   "main": "index.js",
