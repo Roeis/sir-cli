@@ -1,12 +1,12 @@
 {
-  "name": "koa-bone-cli",
+  "name": "hone-cli",
   "version": "1.0.0",
   "description": "scaffold cli tool for koa2 web framework",
   "main": "index.js",
   "author": "roei",
   "license": "MIT",
   "bin": {
-     "bone": "./bin/bonecli"
+     "hone": "./bin/honecli"
   },
   "dependencies": {
     "commander": "^2.9.0",

@@ -11,7 +11,7 @@ const util = require('./lib/util');
 const questions = require('./lib/questions');
 
 // inquirer: https://github.com/SBoudrias/Inquirer.js
-let banner = figlet.textSync('bone', {
+let banner = figlet.textSync('hone', {
     font: 'ghost',
     horizontalLayout: 'full'
 });
@@ -87,7 +87,7 @@ let core = {
             let {env, name, ok} = answers;
 
             if (ok) {
-                cmd.run('gulp pack', {
+                cmd.run('./node_modules/.bin/gulp pack', {
                     COMPILE_TARGET: name,
                     NODE_ENV: env
                 });
@@ -107,7 +107,7 @@ let core = {
         inquirer.prompt(q).then(answers => {
             let {env, name, ok} = answers;
             if (ok) {
-                cmd.run('gulp upload', {
+                cmd.run('./node_modules/.bin/gulp upload', {
                     COMPILE_TARGET: name,
                     NODE_ENV: env
                 });
@@ -132,7 +132,7 @@ let core = {
                     COMPILE_TARGET: name
                 }
                 : null;
-            cmd.run('npm run start', option);
+            cmd.run('./node_modules/.bin/gulp dev', option);
         });
     },
 
@@ -168,7 +168,7 @@ let core = {
         inquirer.prompt(q).then(answers => {
             let {env, ok} = answers;
             if(ok){
-                cmd.run('gulp deploy', {
+                cmd.run('./node_modules/.bin/gulp deploy', {
                     NODE_ENV: env
                 });
                 console.log(`EXECUTING: NODE_ENV=${env} gulp deploy`);

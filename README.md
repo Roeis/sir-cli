@@ -1,13 +1,8 @@
-# koa-bone-cli
+# hone-cli
 
 a scaffold cli tool for web framework development based on koa2
 
-# Bone
-
-    命令行工具: Bone
-    核心：上手快速，开发体验极致
-
-![bone](http://n1image.hjfile.cn/mh/2017/05/15/75198ce65d81c72a9dd1aca7bd815c4f.png)
+ho ne: pronunciation of bone in japanese
 
 **includes**
     - 前后端集成式开发，支持开发热更新
@@ -18,25 +13,25 @@ a scaffold cli tool for web framework development based on koa2
 
 **installation**
 
-    npm i -g koa-bone-cli
+    npm i -g hone-cli
 
 ### Command line Tool Api
 
-    bone init       // 初始化项目
-    bone start      // 启动项目，本地开发
-    bone pack       // 前端工程资源打包
-    bone create     // 创建前端工程项目
-    bone upload     // 前端工程资源上传
-    bone deploy     // 发布项目
-    bone config     // 工具配置
+    hone init       // 初始化项目
+    hone start      // 启动项目，本地开发
+    hone pack       // 前端工程资源打包
+    hone create     // 创建前端工程项目
+    hone upload     // 前端工程资源上传
+    hone deploy     // 发布项目
+    hone config     // 工具配置
 
 ### Quick Start
 
-    1.bone init demo
+    1.hone init demo
 
     2.yarn/npm install
 
-    3.bone start
+    3.hone start
 
 ### Detail
 
@@ -59,4 +54,4 @@ a scaffold cli tool for web framework development based on koa2
 
 取消绑定 npm unlink
 
-npm link 后，全局命令会有当前命令行工具：bone, 使用
+npm link 后，全局命令会有当前命令行工具: hone, 使用
