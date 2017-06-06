@@ -67,6 +67,23 @@ let core = {
         return bundler;
     },
 
+    generateSSRData(renderer, url, defaultDom = '') {
+        let context = {url};
+        return new Promise((resolve, reject) => {
+            renderer.renderToString(context, (err, html) => {
+                console.log('vue ssr renderer:', html, err, context);
+
+                let result = err
+                    ? defaultDom
+                    : html;
+                resolve({
+                    dom: result,
+                    state: context.state
+                });
+            });
+        });
+    },
+
     logError(app) {
 
         // 监控错误日志
@@ -92,8 +109,52 @@ let core = {
 
     result(code = 0, message = 'success', data = null) {
         return {code, message, data};
-    }
+    },
 
+    request({url, method = 'get', header = {}, query = {}, data = {}, success, error}){
+        let start = Date.now();
+
+        return new Promise((resolve, reject) => {
+            let req;
+            method = method.toLowerCase();
+            if(/get/i.test(method)){
+                req = superagent.get(url)
+                    .set(header)
+                    .query(query);
+            }
+            if(/post|put/i.test(method)){
+                req = superagent[method](url)
+                    .set(header)
+                    .send(data);
+            }
+
+            req.then(data => {
+                    let deltatime = Date.now() - start;
+                    success && success(deltatime);
+                    resolve(data);
+                }, err => {
+                    error && error(err);
+                    resolve({});
+                });
+        });
+    },
+
+    getDirs(parentDir) {
+        let dirs = [];
+
+        try {
+            dirs = fs.readdirSync(parentDir);
+
+            dirs = dirs.filter(dir => {
+                let stat = fs.statSync(path.resolve(parentDir, dir));
+                return stat.isDirectory()
+            });
+        } catch (e) {
+            console.log('Get Dirnames Error ', e.message);
+        }
+
+        return dirs;
+    },
 };
 
 module.exports = core;

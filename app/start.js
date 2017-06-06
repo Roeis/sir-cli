@@ -4,8 +4,8 @@ require('app-module-path').addPath(__dirname);
 
 const http = require('http');
 const url = require('url');
-const {env, colors} = require('common/helper');
 const config = require('config');
+const {env, colors} = require('common/helper');
 
 let app = require('server/app');
 let {port} = config;

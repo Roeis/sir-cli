@@ -11,8 +11,9 @@ const util = require('./lib/util');
 const questions = require('./lib/questions');
 
 // inquirer: https://github.com/SBoudrias/Inquirer.js
-let banner = figlet.textSync('hone', {
-    font: 'ghost',
+let banner = figlet.textSync('Sir', {
+    // font: 'ghost',
+    font: 'mini',
     horizontalLayout: 'full'
 });
 console.log(color.green(banner));
@@ -35,7 +36,6 @@ let core = {
             let basePath = path.resolve(__dirname, 'app');
             let targetPath;
             if(ok){
-
                 targetPath = name ? path.resolve(cwd, name) : cwd;
                 console.log('[Status] copying');
                 try{
@@ -44,7 +44,6 @@ let core = {
                 }catch(e){
                     console.log('[Status] error', e.message);
                 }
-
             }else{
                 console.log(cancelText);
             }
@@ -176,7 +175,7 @@ let core = {
                 console.log(cancelText);
             }
         });
-    }
+    },
 };
 
 module.exports = core;

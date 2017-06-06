@@ -1,13 +1,20 @@
 {
-  "name": "hone-cli",
-  "version": "1.0.0",
-  "description": "scaffold cli tool for koa2 web framework",
+  "name": "sir-cli",
+  "version": "1.0.1",
+  "description": "a scaffold cli tool for koa2 web framework",
   "main": "index.js",
   "author": "roei",
   "license": "MIT",
   "bin": {
-     "hone": "./bin/honecli"
+    "sir": "./bin/cli"
   },
+  "keywords": [
+      "scaffold",
+      "koa2",
+      "web framework",
+      "webpack",
+      "workflow"
+  ],
   "dependencies": {
     "commander": "^2.9.0",
     "figlet": "^1.2.0",
