@@ -11,8 +11,9 @@ const util = require('./lib/util');
 const questions = require('./lib/questions');
 
 // inquirer: https://github.com/SBoudrias/Inquirer.js
-let banner = figlet.textSync('hone', {
-    font: 'ghost',
+let banner = figlet.textSync('Sir', {
+    // font: 'ghost',
+    font: 'mini',
     horizontalLayout: 'full'
 });
 console.log(color.green(banner));
@@ -35,7 +36,6 @@ let core = {
             let basePath = path.resolve(__dirname, 'app');
             let targetPath;
             if(ok){
-
                 targetPath = name ? path.resolve(cwd, name) : cwd;
                 console.log('[Status] copying');
                 try{
@@ -44,7 +44,6 @@ let core = {
                 }catch(e){
                     console.log('[Status] error', e.message);
                 }
-
             }else{
                 console.log(cancelText);
             }
@@ -66,8 +65,8 @@ let core = {
             if (ok) {
                 try {
                     fs.copySync(path.resolve(basePath, type), path.resolve(targetPath, name));
-                    console.log('TIP: after create an new front source, better to run "bone pack" flow for generate manifest.')
-                    console.log('see detail in help: bone -h');
+                    console.log('TIP: after create an new front source, better to run pack flow for generate manifest.')
+                    console.log('see detail in help');
                 } catch (e) {
                     console.log('create error@', e);
                 }
@@ -176,7 +175,7 @@ let core = {
                 console.log(cancelText);
             }
         });
-    }
+    },
 };
 
 module.exports = core;

@@ -6,7 +6,11 @@
 
 {% block body %}
     {{ vueDom | safe }}
-    <!-- <div class="wrapper"></div> -->
+    {% if initialState %}
+    <script>
+        window.__INITIAL_STATE__ = {{ initialState | safe }};
+    </script>
+    {% endif %}
     <script src="{{entrance('vendor.js')}}"></script>
     <script src="{{entrance('client.js')}}"></script>
 {% endblock %}

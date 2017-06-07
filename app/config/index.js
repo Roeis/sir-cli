@@ -18,7 +18,7 @@ let config = {
     keys: ['secret', 'keys', 'for', 'crypto'],
 
     // copyright holder name, for packing resource
-    holder: 'Bone Dev',
+    holder: 'holder Inc',
 
     // APP通用中间件列表
     middlewares: [

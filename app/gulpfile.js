@@ -91,18 +91,15 @@ let tasks = {
 
         return gulp.src([`${sourceDir}/**`], {buffer: false}).pipe(connection.newer(targetDir)).pipe(connection.dest(targetDir));
     },
-    deploy(){
+    deploy() {
         let superagent = require('superagent');
         let {url, key} = require('config/deploy');
 
-        superagent.post(`${url}/api/experimental_update`)
-            .set('Content-Type', 'application/json')
-            .send({'secret': key})
-            .then(res => {
-                console.log('executing: ',res.body);
-            }, err => {
-                console.log('net work not good, try again', err);
-            });
+        superagent.post(`${url}/api/experimental_update`).set('Content-Type', 'application/json').send({'secret': key}).then(res => {
+            console.log('executing: ', res.body);
+        }, err => {
+            console.log('net work not good, try again', err);
+        });
     }
 };
 

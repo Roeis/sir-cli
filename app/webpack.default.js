@@ -10,6 +10,9 @@ const autoprefixer = require('autoprefixer');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const {env, utility} = require('common/helper');
 const pkg = require('package.json');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
@@ -145,7 +148,9 @@ let plugins = {
         : '[name].[chunkhash:8].css'),
     // https://github.com/johnagan/clean-webpack-plugin
     clean: new CleanPlugin([outputPath]),
-    // dashboard: new DashboardPlugin()
+    // dashboard: new DashboardPlugin(),
+    vueSSRServer: new VueSSRServerPlugin(),
+    vueSSRClient: new VueSSRClientPlugin(),
 };
 
 let helper = {
@@ -356,7 +361,10 @@ let serverPack = {
     },
     resolve: clientPack.resolve,
     module: clientPack.module,
-    plugins: [plugins.define, plugins.uglifyJs]
+    externals: nodeExternals({
+        whitelist: /\.(css|scss|vue)$/
+    }),
+    plugins: [plugins.define, plugins.uglifyJs, plugins.vueSSRServer]
 };
 
 module.exports = {

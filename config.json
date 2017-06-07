@@ -1,9 +1,1 @@
-{
-    "lang": "en",
-    "packEnv": ["dev", "qa", "release", "ssr"],
-    "uploadEnv": ["dev", "qa", "yz"],
-    "deployEnv": ["dev", "qa", "yz"],
-    "languages": ["english", "中文"],
-    "sourcePath": "static/src",
-    "templatePath": "static/templates"
-}
+{"lang":"en","packEnv":["dev","qa","release","ssr"],"uploadEnv":["dev","qa","yz"],"deployEnv":["dev","qa","yz"],"languages":["english","中文"],"sourcePath":"static/src","templatePath":"static/templates"}

@@ -1,9 +1,13 @@
 'use strict';
 
-const api = require('server/controller/api');
-const business = require('server/controller/business');
+const path = require('path');
+const {utility} = require('common/helper');
 
-module.exports = {
-    business,
-    api
-};
+let controllers = {};
+let list = utility.getDirs(path.resolve(__dirname, './'));
+
+list.forEach(item => {
+    controllers[item] = require(`server/controller/${item}`);
+});
+
+module.exports = controllers;
