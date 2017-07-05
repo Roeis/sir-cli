@@ -4,7 +4,6 @@
   "description": "new scaffold",
   "main": "start.js",
   "scripts": {
-    "start": "gulp dev",
     "test": "mocha test/**/**.spec.js --reporter spec"
   },
   "author": "roei",
