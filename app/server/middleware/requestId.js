@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const uuid = require('uuid');
+const uuid = require('uuid')
 
 module.exports = () => {
-    return (ctx, next) => {
+  return (ctx, next) => {
         /**
             There are two different ways of generating a UUID.
 
@@ -17,7 +17,7 @@ module.exports = () => {
             Version 3: This generates a unique ID from an MD5 hash of a namespace and name. If you need backwards compatibility (with another system that generates UUIDs from names), use this.
             Version 5: This generates a unique ID from an SHA-1 hash of a namespace and name. This is the preferred version.
          */
-        ctx.state.requestId = uuid.v4().replace(/-/g, '');
-        return next();
-    };
+    ctx.state.requestId = uuid.v4().replace(/-/g, '')
+    return next()
+  }
 }

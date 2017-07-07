@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const Router = require('koa-router');
-const middlewares = require('server/middleware');
-const business = require('server/router/business');
-const api = require('server/router/api');
+const Router = require('koa-router')
+const middlewares = require('server/middleware')
+const business = require('server/router/business')
+const api = require('server/router/api')
 
-let router = Router();
+let router = Router()
 /**
  * TODO：路由配置规范
  *  1. API 规范
@@ -21,14 +21,14 @@ let router = Router();
  *      /busione/search/:str
  */
 
-router.use(middlewares.responseTime);
+router.use(middlewares.responseTime)
 
-business.extendTo(router);
-api.extendTo(router);
+business.extendTo(router)
+api.extendTo(router)
 
 const route = app => {
-    app.use(router.routes());
-    app.use(router.allowedMethods());
-};
+  app.use(router.routes())
+  app.use(router.allowedMethods())
+}
 
-module.exports = route;
+module.exports = route

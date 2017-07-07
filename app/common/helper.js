@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const env = require('./env');
-const utility = require('./utility');
-const colors  = require('./colors');
+const env = require('./env')
+const utility = require('./utility')
+const colors = require('./colors')
 
 module.exports = {
-    env,
-    utility,
-    colors
-};
+  env,
+  utility,
+  colors
+}

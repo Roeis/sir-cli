@@ -1,22 +1,22 @@
-'use strict';
+'use strict'
 
-const {utility}  = require('common/helper');
-const icons = require('./icons');
+const {utility} = require('common/helper')
+const icons = require('./icons')
 
 module.exports = {
-    async get(ctx, next) {
-        ctx.type = 'html';
+  async get (ctx, next) {
+    ctx.type = 'html'
 
-        let data = utility.getStaticInfoByName('demo');
+    let data = utility.getStaticInfoByName('demo')
 
-        data.icons = icons;
+    data.icons = icons
 
-        Object.assign(data, {
-            icons,
-            str:  'srtreseere\' s sdsd"sdd"" sdddd'
-        });
+    Object.assign(data, {
+      icons,
+      str: 'srtreseere\' s sdsd"sdd"" sdddd'
+    })
 
-        await ctx.render('desktop/home', data);
-    },
+    await ctx.render('desktop/home', data)
+  }
 
 }

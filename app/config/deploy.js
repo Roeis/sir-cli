@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const env = require('common/env');
+const env = require('common/env')
 
 let type = env.LOCAL || env.DEV
     ? 'development'
@@ -8,30 +8,29 @@ let type = env.LOCAL || env.DEV
         ? 'qa'
         : env.PRERELEASE
             ? 'prerelease'
-            : 'release';
+            : 'release'
 
 let config = {
     // 开发环境
-    development: {
-        url: '',        // remote server url
-        key: '',        // custom secret
-    },
+  development: {
+    url: '',        // remote server url
+    key: ''        // custom secret
+  },
     // 测试环境
-    qa: {
-        url: '',
-        key: '',
-    },
+  qa: {
+    url: '',
+    key: ''
+  },
     // 生产前预览环境
-    prerelease: {
-        url: '',
-        key: '',
-    },
+  prerelease: {
+    url: '',
+    key: ''
+  },
     // 生产环境
-    release: {
-        url: '',
-        key: '',
-    }
-};
+  release: {
+    url: '',
+    key: ''
+  }
+}
 
-
-module.exports = config[type];
+module.exports = config[type]
