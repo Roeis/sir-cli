@@ -1,15 +1,11 @@
 {
   "demo.js": "demo.js",
   "demo.js.map": "demo.js.map",
-  "editor.js": "editor.js",
-  "editor.js.map": "editor.js.map",
   "glyphicons-halflings-regular.eot": "glyphicons-halflings-regular.eot",
   "glyphicons-halflings-regular.svg": "glyphicons-halflings-regular.svg",
   "glyphicons-halflings-regular.ttf": "glyphicons-halflings-regular.ttf",
   "glyphicons-halflings-regular.woff": "glyphicons-halflings-regular.woff",
   "glyphicons-halflings-regular.woff2": "glyphicons-halflings-regular.woff2",
-  "upload.js": "upload.js",
-  "upload.js.map": "upload.js.map",
   "vendor.js": "vendor.js",
   "vendor.js.map": "vendor.js.map"
 }

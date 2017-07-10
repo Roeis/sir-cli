@@ -61,6 +61,15 @@ let rules = {
       cacheDirectory: true
     }
   },
+  eslint: {
+    test: /\.(js|vue)$/,
+    loader: 'eslint-loader',
+    enforce: 'pre',
+    exclude: /node_modules/,
+    options: {
+      formatter: require('eslint-friendly-formatter')
+    }
+  },
   json: {
     test: /\.json$/,
     loader: 'json-loader'
@@ -272,7 +281,8 @@ let clientPack = {
       rules.json,
       rules.image,
       rules.font,
-      rules.vue
+      rules.vue,
+      rules.eslint
     ]
   },
 

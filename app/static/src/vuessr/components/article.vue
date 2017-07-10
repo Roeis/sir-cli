@@ -76,30 +76,30 @@
 
 <script>
 
-import {mapState, mapGetters, mapActions} from 'vuex';
+import {mapState, mapGetters, mapActions} from 'vuex'
 
 export default {
-    asyncData({ store, route: {params: {id}}}){
-        return store.dispatch('FETCH_DETAIL', id).catch(err => {
-            console.log(err);
-        });
-    },
-    computed: {
-        ...mapState({
-            context: 'article'
-        }),
-    },
-    methods: {
-        getArticle(id){
-            this.$bar.show();
-            this.$store.dispatch('FETCH_DETAIL', id).then(() => {
-                this.$bar.hide();
-            }).catch(err => {
-                console.log('has error', err);
-                this.$bar.hide();
-            });
-        }
-    },
+  asyncData ({ store, route: {params: {id}}}) {
+    return store.dispatch('FETCH_DETAIL', id).catch(err => {
+      console.log(err)
+    })
+  },
+  computed: {
+    ...mapState({
+      context: 'article'
+    })
+  },
+  methods: {
+    getArticle (id) {
+      this.$bar.show()
+      this.$store.dispatch('FETCH_DETAIL', id).then(() => {
+        this.$bar.hide()
+      }).catch(err => {
+        console.log('has error', err)
+        this.$bar.hide()
+      })
+    }
+  },
     // 使用watch，不同params下切换时，监听到$route的变化
     // watch: {
     //     $route(to, from) {
@@ -107,58 +107,58 @@ export default {
     //     }
     // },
     // 组件内路由钩子 router hook
-    beforeRouteEnter(to, from, next){
-        console.log('beforeRouteEnter', to, from);
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouteEnter', to, from)
 
-        next();
-    },
-    beforeRouteUpdate(to, from, next){
-        console.log('beforeRouteUpdate', to, from);
-        document.body.scrollTop = 0;
-        this.getArticle(to.params.id);
-        next();
-    },
-    beforeRouteLeave(to, from, next){
-        console.log('beforeRouteLeave');
-        next();
-    },
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate', to, from)
+    document.body.scrollTop = 0
+    this.getArticle(to.params.id)
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('beforeRouteLeave')
+    next()
+  },
 
     // vue生命周期 lifeCycle
-    beforeCreate(){
-        console.log('beforeCreate');
-    },
-    created(){
-        console.log('created');
-    },
-    beforeUpdate(){
+  beforeCreate () {
+    console.log('beforeCreate')
+  },
+  created () {
+    console.log('created')
+  },
+  beforeUpdate () {
         // 统一大路由，不同参数
-        console.log('beforeUpdate');
-    },
-    updated(){
-        console.log('updated');
-    },
-    beforeMount(){
-        console.log('beforeMount');
-    },
-    mounted(){
-        console.log('mounted');
-    },
-    beforeDestroy(){
-        console.log('beforeDestroy');
-    },
-    destroyed(){
-        console.log('destroyed');
-    },
+    console.log('beforeUpdate')
+  },
+  updated () {
+    console.log('updated')
+  },
+  beforeMount () {
+    console.log('beforeMount')
+  },
+  mounted () {
+    console.log('mounted')
+  },
+  beforeDestroy () {
+    console.log('beforeDestroy')
+  },
+  destroyed () {
+    console.log('destroyed')
+  },
 
     // 在routerview包裹keep-alive时，将启用下面生命周期钩子
-    activated(){
-        console.log('activated');
-        this.getArticle(this.$route.params.id);
-    },
-    deactivated(){
-        this.$store.dispatch('RESET_DETAIL');
-        console.log('deactivated');
-    }
+  activated () {
+    console.log('activated')
+    this.getArticle(this.$route.params.id)
+  },
+  deactivated () {
+    this.$store.dispatch('RESET_DETAIL')
+    console.log('deactivated')
+  }
 }
 
 </script>

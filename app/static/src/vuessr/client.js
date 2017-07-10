@@ -1,22 +1,21 @@
-'use strict';
+'use strict'
 
-import Vue from 'vue';
-import {app, router, store} from './app';
-import loadbar from './widgets/loadbar';
+import Vue from 'vue'
+import {app, router, store} from './app'
+import loadbar from './widgets/loadbar'
 
 const bar = Vue.prototype.$bar = new Vue(loadbar).$mount()
-document.body.appendChild(bar.$el);
+document.body.appendChild(bar.$el)
 
 if (window.__INITIAL_STATE__) {
-    store.replaceState(window.__INITIAL_STATE__)
+  store.replaceState(window.__INITIAL_STATE__)
 }
 
 router.onReady(() => {
-
     // to, from, next
-    router.beforeResolve((to, from, next) => {
-        let matchedNext = router.getMatchedComponents(to);
-        let matchedPrev = router.getMatchedComponents(from);
+  router.beforeResolve((to, from, next) => {
+    let matchedNext = router.getMatchedComponents(to)
+    let matchedPrev = router.getMatchedComponents(from)
 
         // let diffed = false
         // let activated = matchedNext.filter((component, i) => {
@@ -33,9 +32,8 @@ router.onReady(() => {
         // Promise.all(promiseSsyncData).then(() => {
         //     next();
         // }).catch(next);
-        next();
-    });
+    next()
+  })
 
-    app.$mount('.wrapper');
-
-});
+  app.$mount('.wrapper')
+})

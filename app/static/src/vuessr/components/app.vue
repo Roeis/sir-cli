@@ -37,15 +37,16 @@
 
 <script>
 
-import vHeader from '../widgets/header';
+import vHeader from '../widgets/header'
 
 export default {
-    components: {
-        vHeader
-    },
-    mounted(){
-        console.log('app mounted');
-    }
+  components: {
+    vHeader
+  },
+  mounted () {
+    console.log('app mounted')
+  }
 }
+
 
 </script>

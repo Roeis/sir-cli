@@ -39,22 +39,22 @@
 <script>
 
 export default {
-    props: {
-        isShow:{
-            type: Boolean,
-            default: false
-        }
-    },
-    methods: {
-        show(){
-            this.isShow = true;
-        },
-        hide(){
-            setTimeout(() => {
-                this.isShow = false;
-            }, 200)
-        }
+  props: {
+    isShow: {
+      type: Boolean,
+      default: false
     }
+  },
+  methods: {
+    show () {
+      this.isShow = true
+    },
+    hide () {
+      setTimeout(() => {
+        this.isShow = false
+      }, 200)
+    }
+  }
 }
 
 </script>

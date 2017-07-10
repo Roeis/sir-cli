@@ -8,6 +8,17 @@ pack       // 前端工程资源打包
 upload     // 前端工程资源上传
 deploy     // 服务端更新钩子(实验性质)
 
+### Node版本 < 7.8
+
+在路口文件里，使用钩子
+
+    require('babel-core/register')
+
+安装async to generator babel plugin
+
+    npm i babel-plugin-transform-async-to-generator -S
+
+
 ### structure
 
     |--- /common                        // 公用方法集合

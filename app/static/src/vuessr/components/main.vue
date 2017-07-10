@@ -75,60 +75,61 @@
 
 <script>
 
-import {mapState, mapActions, mapMutations} from 'vuex';
+import {mapState, mapActions, mapMutations} from 'vuex'
 
 export default {
-    data() {
-        return {
-            index: 1,
-            isLoadEnd: false,
-            isLoading: false,
-            loadOnce: false,
-        }
-    },
-    asyncData({ store, route}){
-        return store.dispatch('FETCH_ARTICLE_LIST', 1)
-    },
-    computed: {
-        ...mapState({
-            list: 'list'
-        })
-    },
-    methods: {
-        ...mapActions([
-            'FETCH_ARTICLE_LIST',
-        ]),
-        ...mapMutations([
-            'SET_PRAISE'
-        ]),
-        getList(index) {
-            // send request for get data
-            this.$store.dispatch('FETCH_ARTICLE_LIST', index);
-        },
-        getListMore(){
-            if(this.isLoadEnd) return;
-
-            this.index++;
-            this.getList(this.index);
-            if(this.index > 2){
-                this.isLoadEnd = true;
-            }
-        },
-        loadmore(){
-            this.getListMore();
-        },
-        scroll(){
-            // 滚动事件
-        }
-    },
-
-    beforeMount(){
-        console.log('beforeMount');
-        // 处理store中文章列表已经由服务端拉取过，客户跳过处理，或者加载第二页
-        if(this.list.length === 0){
-            this.getList(1);
-        }
+  data () {
+    return {
+      index: 1,
+      isLoadEnd: false,
+      isLoading: false,
+      loadOnce: false
     }
+  },
+  asyncData ({ store, route}) {
+    return store.dispatch('FETCH_ARTICLE_LIST', 1)
+  },
+  computed: {
+    ...mapState({
+      list: 'list'
+    })
+  },
+  methods: {
+    ...mapActions([
+      'FETCH_ARTICLE_LIST'
+    ]),
+    ...mapMutations([
+      'SET_PRAISE'
+    ]),
+    getList (index) {
+            // send request for get data
+      this.$store.dispatch('FETCH_ARTICLE_LIST', index)
+    },
+    getListMore () {
+      if (this.isLoadEnd) return
+
+      this.index++
+      this.getList(this.index)
+      if (this.index > 2) {
+        this.isLoadEnd = true
+      }
+    },
+    loadmore () {
+      this.getListMore()
+    },
+    scroll () {
+            // 滚动事件
+    }
+  },
+
+  beforeMount () {
+    console.log('beforeMount')
+        // 处理store中文章列表已经由服务端拉取过，客户跳过处理，或者加载第二页
+    if (this.list.length === 0) {
+      this.getList(1)
+    }
+  }
 }
+
 
 </script>

@@ -30,32 +30,33 @@ header{
 <script>
 
 export default {
-    computed: {
-        isHome(){
-            return this.$route.path === '/';
-        },
-        backText(){
-            return this.isHome ? 'home' : 'back';
-        }
+  computed: {
+    isHome () {
+      return this.$route.path === '/'
     },
-
-    props: {
-        optText: {
-            type: String,
-            default: 'user'
-        }
-    },
-
-    methods:{
-        toHome(){
-            if(!this.isHome){
-                this.$router.push({path: '/', query: this.$route.query});
-            }
-        },
-        toUser(){
-            this.$router.push({path: '/user', query: this.$route.query});
-        }
+    backText () {
+      return this.isHome ? 'home' : 'back'
     }
+  },
+
+  props: {
+    optText: {
+      type: String,
+      default: 'user'
+    }
+  },
+
+  methods: {
+    toHome () {
+      if (!this.isHome) {
+        this.$router.push({path: '/', query: this.$route.query})
+      }
+    },
+    toUser () {
+      this.$router.push({path: '/user', query: this.$route.query})
+    }
+  }
 }
+
 
 </script>
