@@ -75,11 +75,10 @@
 </template>
 
 <script>
-
 import {mapState, mapGetters, mapActions} from 'vuex'
-
+console.log(mapState, mapGetters, mapActions)
 export default {
-  asyncData ({ store, route: {params: {id}}}) {
+  asyncData ({store, route: {params: {id}}}) {
     return store.dispatch('FETCH_DETAIL', id).catch(err => {
       console.log(err)
     })
@@ -100,13 +99,13 @@ export default {
       })
     }
   },
-    // 使用watch，不同params下切换时，监听到$route的变化
-    // watch: {
-    //     $route(to, from) {
-    //         console.log(to, from)
-    //     }
-    // },
-    // 组件内路由钩子 router hook
+  // 使用watch，不同params下切换时，监听到$route的变化
+  // watch: {
+  //     $route(to, from) {
+  //         console.log(to, from)
+  //     }
+  // },
+  // 组件内路由钩子 router hook
   beforeRouteEnter (to, from, next) {
     console.log('beforeRouteEnter', to, from)
 
@@ -123,7 +122,7 @@ export default {
     next()
   },
 
-    // vue生命周期 lifeCycle
+  // vue生命周期 lifeCycle
   beforeCreate () {
     console.log('beforeCreate')
   },
@@ -131,7 +130,7 @@ export default {
     console.log('created')
   },
   beforeUpdate () {
-        // 统一大路由，不同参数
+    // 统一大路由，不同参数
     console.log('beforeUpdate')
   },
   updated () {
@@ -150,7 +149,7 @@ export default {
     console.log('destroyed')
   },
 
-    // 在routerview包裹keep-alive时，将启用下面生命周期钩子
+  // 在routerview包裹keep-alive时，将启用下面生命周期钩子
   activated () {
     console.log('activated')
     this.getArticle(this.$route.params.id)
@@ -160,5 +159,4 @@ export default {
     console.log('deactivated')
   }
 }
-
 </script>

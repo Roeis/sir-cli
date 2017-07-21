@@ -1,3 +1,3 @@
-'use strict';
+'use strict'
 
-console.log('common page');
+console.log('common page')

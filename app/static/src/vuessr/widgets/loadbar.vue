@@ -37,7 +37,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     isShow: {
@@ -56,5 +55,4 @@ export default {
     }
   }
 }
-
 </script>

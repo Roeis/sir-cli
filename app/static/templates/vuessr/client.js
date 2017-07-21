@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-import { app } from './app';
+import { app } from './app'
 
-app.$mount('.wrapper');
+app.$mount('.wrapper')

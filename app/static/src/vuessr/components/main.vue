@@ -74,7 +74,6 @@
 </template>
 
 <script>
-
 import {mapState, mapActions, mapMutations} from 'vuex'
 
 export default {
@@ -86,7 +85,7 @@ export default {
       loadOnce: false
     }
   },
-  asyncData ({ store, route}) {
+  asyncData ({store, route}) {
     return store.dispatch('FETCH_ARTICLE_LIST', 1)
   },
   computed: {
@@ -102,7 +101,7 @@ export default {
       'SET_PRAISE'
     ]),
     getList (index) {
-            // send request for get data
+      // send request for get data
       this.$store.dispatch('FETCH_ARTICLE_LIST', index)
     },
     getListMore () {
@@ -118,18 +117,16 @@ export default {
       this.getListMore()
     },
     scroll () {
-            // 滚动事件
+      // 滚动事件
     }
   },
 
   beforeMount () {
     console.log('beforeMount')
-        // 处理store中文章列表已经由服务端拉取过，客户跳过处理，或者加载第二页
+    // 处理store中文章列表已经由服务端拉取过，客户跳过处理，或者加载第二页
     if (this.list.length === 0) {
       this.getList(1)
     }
   }
 }
-
-
 </script>

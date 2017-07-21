@@ -27,15 +27,13 @@
 </template>
 
 <script>
-
 export default {
-    data(){
-        return {
-            message: 'hello vue2'
-        }
-    },
-    mounted(){
+  data () {
+    return {
+      message: 'hello vue2'
     }
+  },
+  mounted () {
+  }
 }
-
 </script>

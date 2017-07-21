@@ -28,7 +28,6 @@ header{
 </template>
 
 <script>
-
 export default {
   computed: {
     isHome () {
@@ -57,6 +56,4 @@ export default {
     }
   }
 }
-
-
 </script>

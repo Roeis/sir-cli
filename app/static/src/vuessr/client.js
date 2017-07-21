@@ -12,26 +12,26 @@ if (window.__INITIAL_STATE__) {
 }
 
 router.onReady(() => {
-    // to, from, next
+  // to, from, next
   router.beforeResolve((to, from, next) => {
-    let matchedNext = router.getMatchedComponents(to)
-    let matchedPrev = router.getMatchedComponents(from)
+    // let matchedNext = router.getMatchedComponents(to)
+    // let matchedPrev = router.getMatchedComponents(from)
 
-        // let diffed = false
-        // let activated = matchedNext.filter((component, i) => {
-        //     return diffed || (diffed = (matchedPrev[i] !== component))
-        // })
-        // console.log('activated', activated);
-        // if (!activated.length) {
-        //     return next()
-        // }
-        // let promiseSsyncData = activated.map(component => {
-        //     return component.asyncData && component.asyncData({store, route: to})
-        // });
-        //
-        // Promise.all(promiseSsyncData).then(() => {
-        //     next();
-        // }).catch(next);
+    // let diffed = false
+    // let activated = matchedNext.filter((component, i) => {
+    //     return diffed || (diffed = (matchedPrev[i] !== component))
+    // })
+    // console.log('activated', activated);
+    // if (!activated.length) {
+    //     return next()
+    // }
+    // let promiseSsyncData = activated.map(component => {
+    //     return component.asyncData && component.asyncData({store, route: to})
+    // });
+    //
+    // Promise.all(promiseSsyncData).then(() => {
+    //     next();
+    // }).catch(next);
     next()
   })
 

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { clientPack, serverPack, helper } = require('webpack.default.js');
+const { clientPack, serverPack, helper } = require('webpack.default.js')
 
 /**
  * client webpack config
@@ -18,16 +18,15 @@ const { clientPack, serverPack, helper } = require('webpack.default.js');
  */
 
 // 配置添加入口
-helper.addEntry('client');
+helper.addEntry('client')
 
 // 配置添加SSR入口
-helper.addSSR('server');
+helper.addSSR('server')
 
 // 配置添加公用模块Vendor
-helper.addVendor('vue');
-
+helper.addVendor('vue')
 
 module.exports = {
-    clientPack,
-    serverPack
+  clientPack,
+  serverPack
 }

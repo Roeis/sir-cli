@@ -12,7 +12,7 @@ export default context => {
       let matchedComponents = router.getMatchedComponents()
 
       if (!matchedComponents.length) {
-        reject({code: 404})
+        reject(new Error({code: 404}))
       }
 
       let promises = matchedComponents.map(component => {
@@ -21,16 +21,16 @@ export default context => {
 
       Promise.all(promises).then(() => {
         console.log(`data pre-fetch: ${Date.now() - start}ms`)
-                // After all preFetch hooks are resolved, our store is now
-                // filled with the state needed to render the app.
-                // Expose the state on the render context, and let the request handler
-                // inline the state in the HTML response. This allows the client-side
-                // store to pick-up the server-side state without having to duplicate
-                // the initial data fetching on the client.
+        // After all preFetch hooks are resolved, our store is now
+        // filled with the state needed to render the app.
+        // Expose the state on the render context, and let the request handler
+        // inline the state in the HTML response. This allows the client-side
+        // store to pick-up the server-side state without having to duplicate
+        // the initial data fetching on the client.
         context.state = store.state
         resolve(app)
       }).catch(reject)
     }, reject)
   })
-    // return app;
+  // return app;
 }

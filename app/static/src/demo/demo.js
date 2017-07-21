@@ -1,7 +1,8 @@
 'use strict'
 
-// if(env.isPrerelease){
-//     __webpack_public_path__ = __PUBLIC_PATH__.replace(/res\./, 'yzres.');
+// if(someFlag){
+//  set dynamic resources' publich path
+//  __webpack_public_path__ = window.RES_PUBLIC_PATH
 // }
 import _ from 'lodash'
 import './css/demo.scss'
@@ -13,5 +14,5 @@ window._ = _
 
 // // Hot Module Replacement API
 // if (module.hot) {
-//   module.hot.accept();sd
+//   module.hot.accept();
 // }

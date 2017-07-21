@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 
 import Main from '../components/main'
 import NotFound from '../components/notfound'
-import Article from '../components/article'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -17,7 +16,11 @@ const router = new VueRouter({
     },
     {
       path: '/article/:id/',
-      component: Article
+      component: ensure => require(['../components/article'], ensure)
+    },
+    {
+      path: '/user',
+      component: ensure => require(['../components/user'], ensure)
     },
     {
       path: '*',

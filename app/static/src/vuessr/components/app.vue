@@ -36,7 +36,6 @@
 </template>
 
 <script>
-
 import vHeader from '../widgets/header'
 
 export default {
@@ -47,6 +46,4 @@ export default {
     console.log('app mounted')
   }
 }
-
-
 </script>

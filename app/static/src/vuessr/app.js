@@ -22,7 +22,7 @@ let app = new Vue({
 })
 
 export {
-    app,
-    router,
-    store
+  app,
+  router,
+  store
 }

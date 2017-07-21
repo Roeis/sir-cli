@@ -29,7 +29,7 @@ let postcssLoader = {
   }
 }
 let outputPath = path.resolve(distPath, env.COMPILE_TARGET, envPath)
-let outputPublicPath = utility.getPublicPath(env.COMPILE_TARGET)
+let outputPublicPath = env.LOCAL ? utility.getPublicPath(env.COMPILE_TARGET) : ''
 let devtool
 
 // console.log(Object.keys(webpack))
@@ -76,7 +76,7 @@ let rules = {
   },
   css: {
     test: /\.css$/,
-    use: env.LOCAL || env.DEV
+    use: env.LOCAL
             ? ['style-loader', 'css-loader', postcssLoader]
             : ExtractTextPlugin.extract({
               fallback: 'style-loader',
@@ -85,7 +85,7 @@ let rules = {
   },
   scss: {
     test: /\.scss$/,
-    use: env.LOCAL || env.DEV
+    use: env.LOCAL
             ? ['style-loader', 'css-loader', postcssLoader, 'sass-loader']
             : ExtractTextPlugin.extract({
               fallback: 'style-loader',
@@ -96,7 +96,7 @@ let rules = {
     test: /\.(jpg|png|gif|ico)(\?.*)?(#.*)?$/,
     loader: 'url-loader',
     query: {
-      name: env.LOCAL || env.DEV
+      name: env.LOCAL
                 ? '[name].[ext]'
                 : '[name].[hash].[ext]',
       limit: 4096
@@ -106,7 +106,7 @@ let rules = {
     test: /\.(svg|eot|ttf|woff|woff2)(\?.*)?(#.*)?$/,
     loader: 'file-loader',
     query: {
-      name: env.LOCAL || env.DEV
+      name: env.LOCAL
                 ? '[name].[ext]'
                 : '[name].[hash].[ext]'
     }
