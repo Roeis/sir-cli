@@ -1,9 +1,13 @@
 'use strict'
 
-const experiment = require('./experiment')
-const demo = require('./demo')
+const path = require('path')
+const {utility} = require('common/helper')
 
-module.exports = {
-  experiment,
-  demo
-}
+let controllers = {}
+let list = utility.getDirs(path.resolve(__dirname, './'))
+
+list.forEach(item => {
+  controllers[item] = require(`./${item}`)
+})
+
+module.exports = controllers
