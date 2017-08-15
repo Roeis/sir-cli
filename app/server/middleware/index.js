@@ -8,7 +8,6 @@ const etag = require('koa-etag')
 const conditional = require('koa-conditional-get')
 const helmet = require('koa-helmet')
 const logger = require('koa-logger')
-const ratelimit = require('koa-ratelimit')
 const body = require('koa-body')
 
 // const useragent = require('koa-useragent');
@@ -46,11 +45,11 @@ let forbiddenConfig = {
   paths: ['/src/']
     // forbidden requests' pathname start with 'src'
 }
-let ratelimitConfig = {
-  duration: 1000 * 10,
-  errorMessage: 'Sometimes You Just Have to Slow Down',
-  max: 10
-}
+// let ratelimitConfig = {
+//   duration: 1000 * 10,
+//   errorMessage: 'Sometimes You Just Have to Slow Down',
+//   max: 10
+// }
 let logConfig = {
   filename: logPath
 }
@@ -105,47 +104,48 @@ let middlewares = {
     onError (error, ctx) {
       console.log(error, ctx)
     }
-  }),
+  })
 
-    // TODO：需要DB支持
-  ratelimit: ratelimit(ratelimitConfig)
+  // TODO：需要DB支持
+  // ratelimit: ratelimit(ratelimitConfig)
 
 }
 
 if (env.LOCAL && hotDevMode) {
-  let webpack = require('webpack'),
-    hotDev = require('koa-webpack'), {clientPack} = require(`static/src/${env.COMPILE_TARGET}/webpack.config.js`),
-    compiler = webpack(clientPack),
-    hotDevConfig = {
-      compiler,
-      dev: {
+  let webpack = require('webpack')
+  let hotDev = require('koa-webpack')
+  let {clientPack} = require(`static/src/${env.COMPILE_TARGET}/webpack.config.js`)
+  let compiler = webpack(clientPack)
+  let hotDevConfig = {
+    compiler,
+    dev: {
 
-        publicPath: utility.getPublicPath(env.COMPILE_TARGET),
+      publicPath: utility.getPublicPath(env.COMPILE_TARGET),
                 // publicPath is required, whereas all other options are optional
 
-        noInfo: false,
+      noInfo: false,
                 // display no info to console (only warnings and errors)
 
-        quiet: false,
+      quiet: false,
                 // display nothing to the console
 
                 // lazy: true,
                 // switch into lazy mode
                 // that means no watching, but recompilation on every request
 
-        watchOptions: {
-          aggregateTimeout: 500,
-          poll: true
-        },
+      watchOptions: {
+        aggregateTimeout: 500,
+        poll: true
+      },
                 // watch options (only lazy: false)
 
                 // custom headers
-        stats: {
-          colors: true
-        }
+      stats: {
+        colors: true
       }
-            // hot:{}
     }
+            // hot:{}
+  }
 
   Object.assign(middlewares, {
     hotDev: hotDevMode
